@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { Container, Grid } from 'semantic-ui-react'
+import Nav from './components/Nav'
+import CardItem, { cards } from './components/CardItem'
+import './App.css'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Container className='full-width'>
+      <Nav />
+      <Container className='card-container'>
+        <Grid>
+          <Grid.Row>
+            {cards.map((card) => (
+              <Grid.Column width={3} className='card' key={card.id}>
+                <CardItem img={card.img} name={card.name} id={card.id} />
+              </Grid.Column>
+            ))}
+          </Grid.Row>
+        </Grid>
+      </Container>
+    </Container>
+  )
 }
 
-export default App;
+export default App
