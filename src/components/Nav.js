@@ -2,7 +2,7 @@ import React from 'react'
 import { Grid } from 'semantic-ui-react'
 import ScoreBoard from './ScoreBoard'
 
-const Nav = () => {
+const Nav = ({ score, bestScore }) => {
   return (
     <nav className='navbar'>
       <Grid columns={3} className='main-grid'>
@@ -16,7 +16,7 @@ const Nav = () => {
           </Grid.Column>
           <Grid.Column></Grid.Column>
           <Grid.Column className='score'>
-            <ScoreBoard />
+            <ScoreBoard score={score} bestScore={bestScore} />
           </Grid.Column>
         </Grid.Row>
       </Grid>

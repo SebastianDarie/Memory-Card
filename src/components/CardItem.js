@@ -1,7 +1,7 @@
 import React from 'react'
 import { Card, Image } from 'semantic-ui-react'
 
-const CardItem = ({ img, name, id }) => {
+const CardItem = ({ img, name, id, clickHandler }) => {
   const colors = [
     'red',
     'orange',
@@ -20,7 +20,12 @@ const CardItem = ({ img, name, id }) => {
   const cardColor = colors[Math.floor(Math.random() * colors.length)]
 
   return (
-    <Card color={cardColor} id={id}>
+    <Card
+      color={cardColor}
+      id={id}
+      className='stand-card'
+      onClick={() => clickHandler(id)}
+    >
       <Image className='image-height' src={img} wrapped ui={false} />
       <Card.Content>
         <Card.Header>{name}</Card.Header>
